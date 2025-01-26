@@ -165,7 +165,3 @@ This project was a rewarding experience that deepened my understanding of contai
 If you’re curious about how containers work, I highly recommend trying a similar project. There’s no better way to learn than by diving into the details.
 
 Let’s continue exploring and learning! 🚀
-
---- 
-
-This version is more readable, with consistent formatting for headings, bullet points, and code blocks. Let me know if you need further adjustments!
