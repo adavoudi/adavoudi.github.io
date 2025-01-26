@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2025-01-25 19:32:08 +0100
-categories: jekyll update
+title:  "Building a Scalable TODO App on AWS: CI/CD Pipelines, Serverless vs. Serverful Architectures, and Infrastructure-as-Code"
+date:   2025-01-25 10:00:00 +0100
+categories: aws cloudformation cicd developer
+excerpt: Cloud computing is a big deal these days, and the best way to learn it is by getting your hands dirty with real projects. That’s why I decided to build a **TODO app using AWS**. This wasn’t just about making a simple app to manage tasks—it was about learning AWS inside out, mastering CI/CD pipelines, and getting ready for the **AWS Developer Certification Exam**. Along the way, I also wanted to explore how to build scalable and secure systems, and get comfortable with deploying and managing cloud applications.
+cover: /assets/todo-app/todo-app-cicd.drawio.png
 ---
 # 1\. Introduction
 
@@ -28,6 +30,8 @@ Cloud computing is a big deal these days, and the best way to learn it is by get
 # 2\. Overview of the TODO App
 
 The TODO app I built is a simple task management tool that lets users create, read, update, and delete tasks. Here’s a breakdown of how the app works and the technologies behind it:
+
+![](/assets/todo-app/app-screen-2.png)
 
 ## Frontend: React \+ Vite
 
@@ -95,6 +99,8 @@ Before setting up the pipeline, you need to create a connection between your Git
 4. Once the connection is created, you’ll receive a **Connection ARN**. This ARN is used in the CloudFormation template to link your GitHub repository to the pipeline.
 
 ## Step 2: Deploy the CI/CD Pipeline Using CloudFormation
+
+![](/assets/todo-app/todo-app-cicd.drawio.png)
 
 With the GitHub connection in place, the next step is to deploy the CI/CD pipeline using the **`cloudformation-cicd.yml`** template. This template defines the entire pipeline infrastructure, including:
 
@@ -171,6 +177,8 @@ When the pipeline successfully finishes, an additional **CloudFormation stack** 
 3. Navigate to the **Outputs** tab.  
 4. Look for the `RedirectURI` variable. This is the URL of our deployed TODO app, served via **CloudFront**.
 
+![](/assets/todo-app/application-stack-created.png)
+
 # 5\. Serverless vs Serverful
 
 In this project, the TODO app can be deployed using two different architectures: **serverless** and **serverful**. Both approaches have their own advantages and trade-offs, and the choice between them depends on factors like cost, scalability, and complexity. Below, I’ll explain what these terms mean in the context of this project and how each architecture is implemented.
@@ -188,6 +196,8 @@ In the serverless backend, the app uses the following AWS services:
 - **Lambda**: Runs the backend logic (FastAPI app) in a serverless environment.  
 - **DynamoDB**: Stores the TODO tasks.  
 - **Cognito**: Handles user authentication.
+
+![](/assets/todo-app/todo-app-serverless.drawio.png)
 
 ### How It Works
 
@@ -213,6 +223,8 @@ In the serverful backend, the app uses the following AWS services:
 - **EC2 Instances**: Run the FastAPI backend in Docker containers.  
 - **DynamoDB**: Stores the TODO tasks.  
 - **Cognito**: Handles user authentication.
+
+![](/assets/todo-app/todo-app-serverful.drawio.png)
 
 ##### **How It Works**
 
