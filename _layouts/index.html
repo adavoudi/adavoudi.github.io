@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alireza Davoudi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica', sans-serif;
+            background: rgb(26, 188, 156);
+            background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+            overflow: hidden;
+            /* Hide scrollbars */
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            max-width: 600px;
+            text-align: left;
+            color: #eeeeee;
+            padding-right: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0 0 20px 0;
+            font-weight: 300;
+        }
+
+        .bio {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: #eeeeee;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.8em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+        }
+
+        .avatar {
+            width: 350px;
+            height: 350px;
+            border: 5px white solid;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translatey(0px);
+            }
+
+            50% {
+                transform: translatey(-20px);
+            }
+
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .content {
+                padding-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .avatar {
+                width: 250px;
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .bio {
+                font-size: 1em;
+            }
+        }
+
+        /* Add these new styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem 2rem;
+            /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: #eeeeee;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #eeeeee;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            text-align: center;
+            color: #eeeeee;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Adjust container to account for fixed header */
+        .container {
+            margin-top: 80px;
+            /* Add space for fixed header */
+            height: calc(100vh - 160px);
+            /* Adjust height calculation */
+        }
+
+        .line-1 {
+            border-right: 2px solid rgba(255, 255, 255, .75);
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateY(-50%);
+        }
+
+        /* Animation */
+        .anim-typewriter {
+            animation: typewriter 2s steps(44) 1s 1 normal both,
+                blinkTextCursor 500ms steps(44) infinite normal;
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 10em;
+            }
+        }
+
+        @keyframes blinkTextCursor {
+            from {
+                border-right-color: rgba(255, 255, 255, .75);
+            }
+
+            to {
+                border-right-color: transparent;
+            }
+        }
+
+        .ball {
+            position: absolute;
+            border-radius: 100%;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="/posts">Blog Posts</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Existing Container -->
+    <div class="container">
+        <div class="content">
+            <h1 class="line-1 anim-typewriter">{{ site.author.name | escape }}</h1>
+            <p class="bio">
+                {{ site.description | escape }}
+            </p>
+            <div class="social-links">
+                {%- for entry in site.minima.social_links -%}
+                  <a href="{{ entry.user_url }}" target="_blank"><i class="fa fa-{{ entry.platform | downcase }}"></i></a>
+                {%- endfor -%}
+            </div>
+                
+        </div>
+        <div class="avatar">
+            <img src="assets/me.jpeg" alt="Your Name">
+        </div>
+    </div>
+
+    <script>
+        // Some random colors
+        const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+
+        const numBalls = 5;
+        const balls = [];
+
+        for (let i = 0; i < numBalls; i++) {
+            let ball = document.createElement("div");
+            ball.classList.add("ball");
+            ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+            ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+            ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+            ball.style.transform = `scale(${Math.random()})`;
+            ball.style.width = `${Math.random()}em`;
+            ball.style.height = ball.style.width;
+
+            balls.push(ball);
+            document.body.append(ball);
+        }
+
+        // Keyframes
+        balls.forEach((el, i, ra) => {
+            let to = {
+                x: Math.random() * (i % 2 === 0 ? -11 : 11),
+                y: Math.random() * 12
+            };
+
+            let anim = el.animate(
+                [
+                    { transform: "translate(0, 0)" },
+                    { transform: `translate(${to.x}rem, ${to.y}rem)` }
+                ],
+                {
+                    duration: (Math.random() + 1) * 2000, // random duration
+                    direction: "alternate",
+                    fill: "both",
+                    iterations: Infinity,
+                    easing: "ease-in-out"
+                }
+            );
+        });
+    </script>
+
+</body>
+
+</html>
