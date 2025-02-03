@@ -9,7 +9,7 @@ cover: /assets/cpulimit.png
 
 When testing applications or running simulations, it’s sometimes necessary to control CPU usage to avoid overloading a system. Python provides a way to manage CPU consumption using external tools like `stress` and `cpulimit`. In this post, we’ll explore a Python script that effectively limits CPU usage.
 
-![](/assets/cpu-limit.png)
+![](/assets/cpulimit.png)
 
 ## Prerequisites
 
