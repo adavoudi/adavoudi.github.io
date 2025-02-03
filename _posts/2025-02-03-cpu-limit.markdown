@@ -98,10 +98,3 @@ python limit_cpu.py 50 10
 ```
 
 This will limit CPU usage to 50% for 10 seconds.
-
-## Conclusion
-
-This Python script provides a simple way to limit CPU consumption using external tools. It’s useful for testing performance under controlled conditions and preventing excessive CPU usage.
-
-Have you tried controlling CPU usage in other ways? Share your thoughts in the comments!
-
