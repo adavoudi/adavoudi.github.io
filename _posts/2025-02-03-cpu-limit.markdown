@@ -4,7 +4,7 @@ title:  "How to Limit CPU Usage Using `stress` and `cpulimit`"
 date:   2025-02-03 10:00:00 +0100
 categories: cpulimit stress
 excerpt: When testing applications or running simulations, it’s sometimes necessary to control CPU usage to avoid overloading a system. Python provides a way to manage CPU consumption using external tools like `stress` and `cpulimit`. In this post, we’ll explore a Python script that effectively limits CPU usage.
-cover: /assets/cpu-limit.png
+cover: /assets/cpulimit.png
 ---
 
 When testing applications or running simulations, it’s sometimes necessary to control CPU usage to avoid overloading a system. Python provides a way to manage CPU consumption using external tools like `stress` and `cpulimit`. In this post, we’ll explore a Python script that effectively limits CPU usage.
