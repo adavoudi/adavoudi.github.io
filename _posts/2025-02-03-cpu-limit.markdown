@@ -31,6 +31,7 @@ The script below:
 3. Accepts user input for CPU percentage and duration.
 
 ```python
+# Import required libraries
 import subprocess
 import sys
 
@@ -39,8 +40,8 @@ def limit_cpu(percent, seconds):
     Simulate and limit CPU usage using `stress` and `cpulimit` tools.
     
     Args:
-        percent (int): Target CPU utilization percentage (1-100).
-        seconds (int): Duration of the stress test in seconds.
+        percent (int): Target CPU utilization percentage (1-100)
+        seconds (int): Duration of the stress test in seconds
     """
     try:
         # Start stress process to generate CPU load (uses 1 CPU core)
@@ -48,20 +49,23 @@ def limit_cpu(percent, seconds):
             ["stress", "--cpu", "1", "--quiet", "--timeout", str(seconds)]
         )
         
-        # Limit the stress process CPU usage to the target percentage
+        # Limit the stress process CPU usage to target percentage
+        # -i flag ensures child processes are also limited
         subprocess.Popen(
             ["cpulimit", "-p", str(stress_process.pid), "-l", str(percent), "-i"]
         )
         
         print(f"Stress PID {stress_process.pid}, CPU limited to {percent}% for {seconds} seconds.")
-        stress_process.wait()
+        stress_process.wait()  # Wait for stress process to complete
         
     except KeyboardInterrupt:
+        # Handle manual interruption gracefully
         stress_process.terminate()
         stress_process.wait()
         print("Processes stopped.")
 
 if __name__ == "__main__":
+    # Validate command-line arguments
     if len(sys.argv) != 3:
         print("Usage: python limit_cpu.py <cpu_percent> <seconds>")
         sys.exit(1)
@@ -70,11 +74,11 @@ if __name__ == "__main__":
         percent = int(sys.argv[1])
         seconds = int(sys.argv[2])
         
-        if not (1 <= percent <= 100):
+        if percent < 1 or percent > 100:
             raise ValueError("CPU percent must be between 1 and 100.")
-        
+            
     except ValueError:
-        print("Error: Invalid input values.")
+        print("Error: Invalid input values")
         sys.exit(1)
         
     limit_cpu(percent, seconds)
