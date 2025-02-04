@@ -9,6 +9,8 @@ cover: /assets/aws-services/autoscaling/cover.png
 
 In this blog post, we will explore how to create an autoscaling group with a target tracking policy using AWS CloudFormation. We'll delve into the concepts of autoscaling groups, different scaling policies, and why AWS recommends using target tracking policies. Additionally, we will walk through an example that demonstrates the behavior of an autoscaling group in response to CPU utilization changes.
 
+![](/assets/aws-services/autoscaling/cover.png)
+
 ## 1. Understanding Auto Scaling Groups
 
 An **Auto Scaling group** is a collection of Amazon EC2 instances that share similar characteristics and are treated as a logical grouping for scaling and management purposes. The primary purpose of an Auto Scaling group is to ensure that there are enough EC2 instances available to handle the load on your application.
