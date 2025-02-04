@@ -257,6 +257,7 @@ This template includes:
 - Launch Template specifying the configuration for launching EC2 instances.
 - Auto Scaling Group defining the group with a minimum size of 1, maximum size of 3, and desired capacity of 1.
 - Target Tracking Scaling Policy configured to maintain an average CPU utilization of 50%.
+- Detailed monitoring for EC2 instances is enabled: By default, all Amazon EC2 metrics are published in five-minute intervals, but they are configurable to a lower interval of one minute by enabling detailed monitoring. This higher resolution allows for more responsive scaling actions and better visibility into the performance of your instances.
 
 ## 5. Simulating CPU Load with AWS Systems Manager
 
@@ -272,6 +273,8 @@ The `aws ssm send-command` is a feature of AWS Systems Manager that allows you t
 - **Parameters**: Pass any necessary parameters to the command.
 
 In my example, the `send-command` runs the `stress-cpu.py` script on the instance tagged with `MAIN-Instance`, simulating high CPU usage.
+
+For more details about the `stress-cpu.py` script and how it works, check out my previous post: [Simulate CPU Utilization with `stress` and `cpulimit`](https://adavoudi.info/cpulimit/stress/2025/02/03/cpu-limit.html).
 
 ## 6. Analyzing the Activity History
 
