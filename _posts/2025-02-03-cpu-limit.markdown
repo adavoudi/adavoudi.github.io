@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "How to Limit CPU Usage Using `stress` and `cpulimit`"
+title:  "Simulate CPU Utilization with `stress` and `cpulimit`"
 date:   2025-02-03 10:00:00 +0100
 categories: cpulimit stress
-excerpt: When testing applications or simulating environments, controlling CPU usage helps recreate real-world conditions more accurately. For example, testing AWS auto-scaling groups requires simulating CPU load variations to understand how systems scale. A simple yet effective approach combines `stress` (to generate load) and `cpulimit` (to enforce limits). In this post, I share a basic Python script that ties these tools together, offering a lightweight way to manage CPU usage.
-cover: /assets/cpulimit.png
+excerpt: Simulating precise CPU utilization is essential for testing applications and systems under controlled conditions. For example, when evaluating system performance or auto-scaling behavior, you may want to set CPU usage to a specific percentage. This post introduces a Python script that leverages the `stress` tool to achieve this, offering a flexible way to simulate exact CPU loads.
+cover: /assets/cpu_utilization.png
 ---
 
-When testing applications or simulating environments, controlling CPU usage helps recreate real-world conditions more accurately. For example, testing AWS auto-scaling groups requires simulating CPU load variations to understand how systems scale. A simple yet effective approach combines `stress` (to generate load) and `cpulimit` (to enforce limits). In this post, I share a basic Python script that ties these tools together, offering a lightweight way to manage CPU usage.
+Simulating precise CPU utilization is essential for testing applications and systems under controlled conditions. For example, when evaluating system performance or auto-scaling behavior, you may want to set CPU usage to a specific percentage. This post introduces a Python script that leverages the `stress` tool to achieve this, offering a flexible way to simulate exact CPU loads.
 
-![](/assets/cpulimit.png)
+![](/assets/cpu_utilization.png)
 
 ## Prerequisites
 
@@ -17,45 +17,55 @@ Before running the script, ensure that you have the necessary tools installed:
 
 ```bash
 sudo apt update
-sudo apt install stress cpulimit
+sudo apt install stress
 ```
 
-These tools allow us to generate CPU load (`stress`) and control it (`cpulimit`).
+The `stress` tool allows us to generate CPU load, while the Python script manages the simulation process.
 
 ## The Python Script
 
 The script below:
-
 1. Generates CPU load using `stress`.
-2. Limits the CPU usage using `cpulimit`.
-3. Accepts user input for CPU percentage and duration.
+2. Accepts user input for CPU percentage and duration.
+3. Dynamically adjusts the number of CPU cores used based on the desired percentage.
 
 ```python
 # Import required libraries
 import subprocess
 import sys
+import os
 
-def limit_cpu(percent, seconds):
+def calculate_cpu_cores(percent):
     """
-    Simulate and limit CPU usage using `stress` and `cpulimit` tools.
+    Calculate the number of CPU cores to use based on the desired percentage.
+    
+    Args:
+        percent (int): Target CPU utilization percentage (1-100)
+    
+    Returns:
+        int: Number of CPU cores to use
+    """
+    total_cpus = os.cpu_count()
+    return max(1, round((percent / 100) * total_cpus))
+
+def set_cpu_utilization(percent, seconds):
+    """
+    Simulate specific CPU utilization using the `stress` tool.
     
     Args:
         percent (int): Target CPU utilization percentage (1-100)
         seconds (int): Duration of the stress test in seconds
     """
     try:
-        # Start stress process to generate CPU load (uses 1 CPU core)
+        # Calculate the number of CPU cores to use
+        cpu_cores = calculate_cpu_cores(percent)
+        
+        # Start stress process to generate CPU load
         stress_process = subprocess.Popen(
-            ["stress", "--cpu", "1", "--quiet", "--timeout", str(seconds)]
+            ["stress", "--cpu", str(cpu_cores), "--quiet", "--timeout", str(seconds)]
         )
         
-        # Limit the stress process CPU usage to target percentage
-        # -i flag ensures child processes are also limited
-        subprocess.Popen(
-            ["cpulimit", "-p", str(stress_process.pid), "-l", str(percent), "-i"]
-        )
-        
-        print(f"Stress PID {stress_process.pid}, CPU limited to {percent}% for {seconds} seconds.")
+        print(f"Simulating {percent}% CPU utilization using {cpu_cores} core(s) for {seconds} seconds.")
         stress_process.wait()  # Wait for stress process to complete
         
     except KeyboardInterrupt:
@@ -67,7 +77,7 @@ def limit_cpu(percent, seconds):
 if __name__ == "__main__":
     # Validate command-line arguments
     if len(sys.argv) != 3:
-        print("Usage: python limit_cpu.py <cpu_percent> <seconds>")
+        print("Usage: python set_cpu_utilization.py <cpu_percent> <seconds>")
         sys.exit(1)
         
     try:
@@ -81,7 +91,7 @@ if __name__ == "__main__":
         print("Error: Invalid input values")
         sys.exit(1)
         
-    limit_cpu(percent, seconds)
+    set_cpu_utilization(percent, seconds)
 ```
 
 ## How It Works
@@ -89,8 +99,8 @@ if __name__ == "__main__":
 - The script takes two command-line arguments:
   - CPU usage percentage (1-100).
   - Duration (in seconds).
-- It spawns a `stress` process to generate CPU load.
-- It applies `cpulimit` to restrict CPU usage.
+- It calculates the number of CPU cores to use based on the desired percentage.
+- It spawns a `stress` process to generate the specified CPU load.
 - It waits for the process to complete before exiting.
 
 ## Running the Script
@@ -98,7 +108,7 @@ if __name__ == "__main__":
 To run the script, use:
 
 ```bash
-python limit_cpu.py 50 10
+python set_cpu_utilization.py 50 10
 ```
 
-This will limit CPU usage to 50% for 10 seconds.
+This will simulate 50% CPU utilization for 10 seconds.
