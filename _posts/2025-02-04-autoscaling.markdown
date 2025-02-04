@@ -27,9 +27,9 @@ There are three main types of scaling policies:
 2. **Step scaling**: Adjusts the desired capacity based on the size of the alarm breach.
 3. **Target tracking scaling**: Automatically adjusts the desired capacity to keep a specific metric at a particular value.
 
-## 3. Why I Recommend Target Tracking Policies
+## 3. Why AWS Recommend Target Tracking Policies
 
-I strongly recommend using **target tracking scaling policies** because they simplify maintaining optimal performance while minimizing costs. With target tracking, you set a target value for a specific metric (e.g., average CPU utilization or average request count per target), and Amazon EC2 Auto Scaling automatically adjusts the capacity of your group to maintain that target.
+AWS strongly recommends using **target tracking scaling policies** because they simplify maintaining optimal performance while minimizing costs. With target tracking, you set a target value for a specific metric (e.g., average CPU utilization or average request count per target), and Amazon EC2 Auto Scaling automatically adjusts the capacity of your group to maintain that target.
 
 Here’s why target tracking is advantageous:
 - **Proportional scaling**: If you double the size of your Auto Scaling group, the metric decreases by 50 percent, allowing the metric data to accurately trigger proportional scaling events.
