@@ -32,7 +32,7 @@ layout: base
           </a>
         </h3>
         {%- if post.cover -%}
-          <img src="{{ post.cover }}" alt="{{ post.title }}" style="margin-bottom: 1em;"><br>
+          <img src="{{ post.cover }}" alt="{{ post.title }}" style="margin-bottom: 1em; width: 100%;"><br>
         {%- endif -%}
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
