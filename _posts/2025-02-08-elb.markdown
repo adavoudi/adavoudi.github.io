@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "Choosing Between Network Load Balancer and Application Load Balancer in AWS"
+date:   2025-02-08 10:00:00 +0100
+categories: elb
+excerpt: When deploying applications on AWS, choosing the right load balancer is crucial for performance, availability, and scalability. AWS offers two primary types of Elastic Load Balancers (ELB) Application Load Balancer (ALB) and Network Load Balancer (NLB). Understanding their differences and use cases will help you make an informed decision.
+cover: /assets/aws-services/elb/cover.png
+---
+
+When deploying applications on AWS, choosing the right load balancer is crucial for performance, availability, and scalability. AWS offers two primary types of Elastic Load Balancers (ELB): **Application Load Balancer (ALB)** and **Network Load Balancer (NLB)**. Understanding their differences and use cases will help you make an informed decision.
+
+![](/assets/aws-services/elb/cover.png)
+
+## **Application Load Balancer (ALB)**
+
+**Layer:** Operates at Layer 7 (Application Layer) of the OSI model.
+
+### **Key Features:**
+- Designed for **HTTP and HTTPS traffic**.
+- Supports **host-based and path-based routing**, allowing for advanced request-based routing.
+- Features **SSL/TLS termination**, WebSockets, and HTTP/2 support.
+- Ideal for web applications and microservices architectures.
+
+### **Use Cases:**
+- Websites and APIs requiring **content-based routing**.
+- Applications needing **WebSockets** or **HTTP/2** support.
+- Deployments where **session stickiness** and advanced authentication are needed.
+
+## **Network Load Balancer (NLB)**
+
+**Layer:** Operates at Layer 4 (Transport Layer) of the OSI model.
+
+### **Key Features:**
+- Handles **TCP, UDP, and TLS traffic**.
+- Optimized for **high throughput and low latency**, handling millions of requests per second.
+- Preserves **client source IP addresses**.
+- Provides a **static IP address per Availability Zone**.
+
+### **Use Cases:**
+- Applications requiring **extreme performance** and **low-latency connections**.
+- Workloads handling **non-HTTP traffic**, such as databases or VoIP applications.
+- Deployments needing **fixed IP addresses** for compliance and security.
+
+## **Key Differences Between ALB and NLB**
+
+| Feature | Application Load Balancer (ALB) | Network Load Balancer (NLB) |
+|---------|--------------------------------|--------------------------------|
+| **Layer** | Layer 7 (Application) | Layer 4 (Transport) |
+| **Traffic Type** | HTTP/HTTPS | TCP/UDP/TLS |
+| **Routing Capabilities** | Content-based routing | Connection-based routing |
+| **Performance** | Moderate throughput | High throughput, low latency |
+| **Static IP Support** | No (workarounds available) | Yes (one per AZ) |
+| **Client IP Preservation** | No (unless X-Forwarded-For is used) | Yes |
+
+## **Static IP Considerations for ALB**
+
+Unlike **NLB**, an **ALB does not provide static IP addresses per Availability Zone**. However, AWS provides workarounds:
+
+1. **Use an NLB in front of an ALB** – You can register an ALB as a target behind an NLB. This setup enables the **NLB’s static IP feature** while still benefiting from **ALB’s advanced routing**.
+2. **AWS Global Accelerator** – This service provides **static IPs** that route traffic efficiently to an ALB or NLB, offering **improved global performance** and **automatic failover**.
+
+### **Understanding AWS Global Accelerator**
+
+AWS **Global Accelerator** is a networking service that improves the availability and performance of applications by routing traffic through AWS’s global infrastructure. It provides **two static IP addresses** that act as fixed entry points for users.
+
+#### **Key Benefits of AWS Global Accelerator:**
+- **Static IP Addresses:** Simplifies DNS management and firewall rules.
+- **Global Traffic Routing:** Directs users to the nearest healthy endpoint for **low-latency access**.
+- **Automatic Failover:** Reroutes traffic if an endpoint becomes unhealthy.
+- **DDoS Protection:** Integrated with AWS Shield for enhanced security.
+
+#### **Use Cases for AWS Global Accelerator:**
+- **Multi-region deployments** needing **automated failover**.
+- **Latency-sensitive applications**, such as gaming and video streaming.
+- **Regulated industries** requiring **fixed IP addresses** for compliance.
+
+## **Final Thoughts: Which Load Balancer Should You Choose?**
+
+- **Use ALB** if you need **advanced Layer 7 routing**, SSL termination, or WebSockets.
+- **Use NLB** if you require **high throughput, low latency, and static IP addresses**.
+- **Consider AWS Global Accelerator** if you need **global performance optimization and static IP addresses**.
+
+By aligning your application’s requirements with the capabilities of AWS load balancers, you can ensure **optimal performance, reliability, and scalability** for your workloads.
+
