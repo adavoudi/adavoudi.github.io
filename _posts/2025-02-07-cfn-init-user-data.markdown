@@ -11,6 +11,7 @@ When launching an Amazon EC2 instance, you often need to automate the installati
 
 ![](/assets/aws-services/cfn-init/cover.png)
 
+
 ---
 
 ## **User Data for EC2 Bootstrapping**
