@@ -1,303 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alireza Davoudi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {%- include google-analytics.html -%}
+    <title>Alireza Davoudi - Senior Data Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body,
-        html {
-            height: 100%;
+        /* Basic Reset & Body Styles */
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica', sans-serif;
-            background: rgb(26, 188, 156);
-            background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
-            overflow: hidden;
-            /* Hide scrollbars */
-        }
-
-        .container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            padding: 40px;
             box-sizing: border-box;
         }
 
-        .content {
-            max-width: 600px;
-            text-align: left;
-            color: #eeeeee;
-            padding-right: 40px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin: 0 0 20px 0;
-            font-weight: 300;
-        }
-
-        .bio {
-            font-size: 1.1em;
+        body {
+            font-family: 'Lato', sans-serif;
             line-height: 1.6;
-            margin-bottom: 30px;
+            color: #333;
+            background-color: #f8f9fa; /* Light grey background */
         }
 
-        .social-links a {
-            color: #eeeeee;
+        /* Header/Nav Styling */
+        .main-header {
+            background-color: #ffffff; /* White header background */
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky; /* Optional: makes header stick */
+            top: 0;
+            z-index: 10;
+        }
+
+        .main-header nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: right;
+        }
+
+        .main-header nav ul {
+            list-style: none;
+        }
+
+        .main-header nav ul li {
+            display: inline-block; /* Keep simple for one item */
+        }
+
+        .main-header nav a {
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.8em;
+            color: #007bff; /* Primary accent color */
+            font-weight: bold;
+            padding: 0.5rem 1rem;
             transition: color 0.3s ease;
         }
 
-        .social-links a:hover {
-            color: #ffffff;
+        .main-header nav a:hover {
+            color: #0056b3; /* Darker accent color on hover */
         }
 
-        .avatar {
-            width: 350px;
-            height: 350px;
-            border: 5px white solid;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-            animation: float 6s ease-in-out infinite;
+
+        /* Hero Section Styles */
+        .hero-section {
+            min-height: calc(100vh - 60px); /* Adjust if header height changes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem; /* Add padding */
         }
 
-        .avatar img {
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem; /* Space between text and image */
             width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-        @keyframes float {
-            0% {
-                transform: translatey(0px);
-            }
-
-            50% {
-                transform: translatey(-20px);
-            }
-
-            100% {
-                transform: translatey(0px);
-            }
+        /* Text Content Styling */
+        .text-content {
+            flex: 1; /* Allow text content to take available space */
+            max-width: 600px; /* Limit text width */
         }
 
+        .text-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem; /* Larger font size for name */
+            font-weight: 700;
+            color: #343a40; /* Darker heading color */
+            margin-bottom: 0.5rem;
+        }
+
+        .text-content .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #007bff; /* Use accent color */
+            margin-bottom: 1.5rem;
+        }
+
+        .text-content .bio {
+            font-size: 1.1rem;
+            color: #555; /* Slightly lighter text color */
+            margin-bottom: 2rem;
+        }
+
+        /* Call-to-Action Links/Buttons */
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens if needed */
+            gap: 1rem; /* Space between buttons */
+        }
+
+        .btn {
+            display: inline-flex; /* Align icon and text */
+            align-items: center;
+            gap: 0.5rem; /* Space between icon and text */
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Primary accent color */
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #e9ecef; /* Light grey button */
+            color: #343a40; /* Dark text */
+            border: 1px solid #ced4da; /* Subtle border */
+        }
+
+        .btn-secondary:hover {
+            background-color: #d6d8db; /* Slightly darker grey on hover */
+            transform: translateY(-2px);
+        }
+
+        .btn i {
+            font-size: 1.1em; /* Slightly larger icons */
+        }
+
+
+        /* Image Content Styling */
+        .image-content {
+            flex-shrink: 0; /* Prevent image from shrinking */
+            text-align: center; /* Center image if container is wider */
+        }
+
+        .profile-pic {
+            width: 250px;  /* Adjust size as needed */
+            height: 250px; /* Keep it square for perfect circle */
+            border-radius: 50%; /* Make it circular */
+            object-fit: cover; /* Cover the area without stretching */
+            border: 5px solid #ffffff; /* Optional: white border */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column;
-                padding: 20px;
-                text-align: center;
+                flex-direction: column; /* Stack items vertically */
+                text-align: center; /* Center text */
+                gap: 2rem;
             }
 
-            .content {
-                padding-right: 0;
-                margin-bottom: 40px;
-                text-align: center;
+            .text-content h1 {
+                font-size: 2.2rem;
             }
 
-            .avatar {
-                width: 250px;
-                height: 250px;
+            .text-content .subtitle {
+                font-size: 1.1rem;
             }
 
-            h1 {
-                font-size: 2em;
+            .text-content .bio {
+                font-size: 1rem;
             }
 
-            .bio {
-                font-size: 1em;
-            }
-        }
-
-        /* Add these new styles */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1rem 2rem;
-            /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo a {
-            color: #eeeeee;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #eeeeee;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        .footer {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 2rem;
-            text-align: center;
-            color: #eeeeee;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Adjust container to account for fixed header */
-        .container {
-            margin-top: 80px;
-            /* Add space for fixed header */
-            height: calc(100vh - 160px);
-            /* Adjust height calculation */
-        }
-
-        .line-1 {
-            border-right: 2px solid rgba(255, 255, 255, .75);
-            white-space: nowrap;
-            overflow: hidden;
-            transform: translateY(-50%);
-        }
-
-        /* Animation */
-        .anim-typewriter {
-            animation: typewriter 2s steps(44) 1s 1 normal both,
-                blinkTextCursor 500ms steps(44) infinite normal;
-        }
-
-        @keyframes typewriter {
-            from {
-                width: 0;
+            .cta-links {
+                justify-content: center; /* Center buttons */
             }
 
-            to {
-                width: 10em;
-            }
-        }
-
-        @keyframes blinkTextCursor {
-            from {
-                border-right-color: rgba(255, 255, 255, .75);
+            .image-content {
+                margin-top: 1rem; /* Add space above image */
             }
 
-            to {
-                border-right-color: transparent;
+            .profile-pic {
+                width: 200px; /* Slightly smaller image on mobile */
+                height: 200px;
             }
-        }
 
-        .ball {
-            position: absolute;
-            border-radius: 100%;
-            opacity: 0.7;
+            .hero-section {
+                padding: 3rem 1rem; /* Adjust padding for mobile */
+            }
         }
     </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-            </div>
-            <div class="nav-links">
-                <a href="/posts">Blog Posts</a>
-            </div>
+
+    <header class="main-header">
+        <nav>
+            <ul>
+                <li><a href="/posts">Blog Posts</a></li>
+                <li><a href="/aws-sap">AWS SAP Tutorials</a></li>
+                </ul>
         </nav>
     </header>
 
-    <!-- Existing Container -->
-    <div class="container">
-        <div class="content">
-            <h1 class="line-1 anim-typewriter">{{ site.author.name | escape }}</h1>
-            <p class="bio">
-                {{ site.description | escape }}
-            </p>
-            <div class="social-links">
-                {%- for entry in site.minima.social_links -%}
-                  <a href="{{ entry.user_url }}" target="_blank"><i class="fa fa-{{ entry.platform | downcase }}"></i></a>
-                {%- endfor -%}
+    <main class="hero-section">
+        <div class="container">
+            <div class="text-content">
+                <h1>Alireza Davoudi</h1>
+                <p class="subtitle">Senior Data Engineer at Yelp | AWS Enthusiast</p>
+                <p class="bio">
+                    Here, I share insights and projects centered around AWS and cloud technologies.
+                    Whether you're looking to collaborate, learn, or connect, feel free to reach out.
+                    Always eager to learn and grow together!
+                </p>
+                <div class="cta-links">
+                    <a href="mailto:davoudialireza@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    {%- for entry in site.minima.social_links -%}
+                        <a href="{{ entry.user_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <i class="fa fa-{{ entry.platform | downcase }}"></i>
+                        </a>
+                    {%- endfor -%}
+                </div>
             </div>
-                
+            <div class="image-content">
+                <img src="assets/me.jpeg" alt="Profile picture of Alireza Davoudi" class="profile-pic">
+            </div>
         </div>
-        <div class="avatar">
-            <img src="assets/me.jpeg" alt="Your Name">
-        </div>
-    </div>
+    </main>
 
-    <script>
-        // Some random colors
-        const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
-
-        const numBalls = 5;
-        const balls = [];
-
-        for (let i = 0; i < numBalls; i++) {
-            let ball = document.createElement("div");
-            ball.classList.add("ball");
-            ball.style.background = colors[Math.floor(Math.random() * colors.length)];
-            ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
-            ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
-            ball.style.transform = `scale(${Math.random()})`;
-            ball.style.width = `${Math.random()}em`;
-            ball.style.height = ball.style.width;
-
-            balls.push(ball);
-            document.body.append(ball);
-        }
-
-        // Keyframes
-        balls.forEach((el, i, ra) => {
-            let to = {
-                x: Math.random() * (i % 2 === 0 ? -11 : 11),
-                y: Math.random() * 12
-            };
-
-            let anim = el.animate(
-                [
-                    { transform: "translate(0, 0)" },
-                    { transform: `translate(${to.x}rem, ${to.y}rem)` }
-                ],
-                {
-                    duration: (Math.random() + 1) * 2000, // random duration
-                    direction: "alternate",
-                    fill: "both",
-                    iterations: Infinity,
-                    easing: "ease-in-out"
-                }
-            );
-        });
-    </script>
-
-</body>
-
+    </body>
 </html>
