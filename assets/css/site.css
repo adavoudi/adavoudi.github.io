@@ -145,7 +145,7 @@ p { margin: 0 0 1em; }
 .tags li { font: 400 12.5px/1 var(--font-mono); padding: 7px 10px; border-radius: 6px; border: 1px solid var(--line-strong); color: var(--fg-dim); background: rgba(255, 255, 255, .03); }
 .refs { list-style: none; padding: 14px 0 0; margin: 0; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 14.5px; }
 .refs li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; line-height: 1.4; }
-.refs__kind { font: 500 10.5px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); min-width: 34px; }
+.refs__kind { font: 500 10.5px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); min-width: 44px; }
 .refs a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
 .refs a:hover { text-decoration-color: var(--amber); color: var(--amber); }
 .refs em { color: var(--muted); font-style: normal; font-size: 13px; flex-basis: 100%; padding-left: 44px; }

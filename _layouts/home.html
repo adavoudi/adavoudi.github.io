@@ -43,7 +43,7 @@ layout: default
             {%- if post -%}<li><span class="refs__kind">post</span><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>{%- endif -%}
           {%- endfor -%}
           {%- for r in s.repos -%}
-            <li><span class="refs__kind">repo</span><a href="{{ r.url }}" rel="noopener">{{ r.title }}</a><em>{{ r.note }}</em></li>
+            <li><span class="refs__kind">{{ r.kind | default: "repo" }}</span><a href="{{ r.url }}" rel="noopener">{{ r.title }}</a><em>{{ r.note }}</em></li>
           {%- endfor -%}
         </ul>
       </article>

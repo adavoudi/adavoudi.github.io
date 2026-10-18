@@ -31,6 +31,7 @@ stages:
     tags: [Spark, Flink, dbt, Python, Docker]
     posts: [deep-dive-docker, cpu-limit, autoscaling, elb]
     repos:
+      - { title: DE Mastery, kind: course, note: "My course: Spark, Kafka, Flink and lakehouse for analytics engineers", url: "https://adavoudi.info/de-mastery/" }
       - { title: simple_docker, note: "A Docker-like container runtime in Python", url: "https://github.com/adavoudi/simple_docker" }
 
   - key: store
