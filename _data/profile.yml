@@ -56,3 +56,10 @@ stages:
     posts: [aws-system-manager, cfn-init-user-data, cross-account-access, saving-plan]
     repos:
       - { title: aws-sap, note: "My AWS Solutions Architect Professional study guide", url: "https://github.com/adavoudi/aws-sap" }
+
+# Certifications. tier: 2 = Associate, 3 = Professional (drives the pips on the badge).
+certs:
+  - { code: SAP, name: "Solutions Architect", level: Professional, tier: 3, from: "#ffb45c", to: "#ef6f5e" }
+  - { code: DEA, name: "Data Engineer",       level: Associate,    tier: 2, from: "#62e6d5", to: "#8b7bff" }
+  - { code: DVA, name: "Developer",           level: Associate,    tier: 2, from: "#8b7bff", to: "#ef6f5e" }
+  - { code: SOA, name: "SysOps Administrator", level: Associate,   tier: 2, from: "#62e6d5", to: "#ffb45c" }

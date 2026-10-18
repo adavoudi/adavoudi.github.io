@@ -178,9 +178,23 @@ p { margin: 0 0 1em; }
 .js:not(.no-webgl) .labels { display: block; position: absolute; inset: 0; pointer-events: none; }
 .label { position: absolute; left: 0; top: 0; white-space: nowrap; font: 500 11.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--amber); padding: 6px 9px; border: 1px solid rgba(255, 180, 92, .35); border-radius: 6px; background: rgba(7, 9, 15, .6); backdrop-filter: blur(4px); opacity: 0; transition: opacity .4s; will-change: transform; }
 
+/* ---------- Certifications ---------- */
+.certs { background: var(--bg); padding-bottom: clamp(40px, 6vw, 80px); }
+.certs__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; }
+.cert { text-align: center; padding: 30px 20px 26px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, .01)); transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-color .3s; }
+.cert:hover { transform: translateY(-6px); border-color: rgba(255, 180, 92, .45); }
+.badge { width: 132px; height: auto; overflow: visible; filter: drop-shadow(0 8px 24px rgba(0, 0, 0, .5)); transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+.cert:hover .badge { transform: scale(1.07) rotate(-3deg); }
+.badge__code { font: 700 27px var(--font-display); letter-spacing: -.02em; }
+.badge__ring { transform-origin: 60px 66px; animation: spin 40s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.cert__name { margin: 18px 0 6px; font-size: 15px; line-height: 1.35; color: var(--fg-dim); }
+.cert__name strong { color: var(--fg); font: 600 1.1rem/1.3 var(--font-display); }
+.cert__level { margin: 0; font: 500 11.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
+
 /* ---------- Sections ---------- */
 .section { position: relative; padding: clamp(80px, 12vw, 150px) 0; }
-.writing { background: linear-gradient(to bottom, rgba(7, 9, 15, 0), var(--bg) 140px); }
+.writing { background: var(--bg); }
 .section__head { margin-bottom: 48px; max-width: 640px; }
 .section__head h2 { margin-bottom: 18px; }
 

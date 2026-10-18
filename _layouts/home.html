@@ -58,6 +58,25 @@ layout: default
     </div>
   </section>
 
+  <section class="section certs" id="certified" aria-labelledby="certs-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Certified</p>
+        <h2 id="certs-title">Four AWS certifications.</h2>
+        <p class="lead">I came to data engineering through computer vision and machine learning, so I care a lot about pipelines that are observable and trustworthy. The certifications are the cloud half of that.</p>
+      </header>
+      <ul class="certs__grid">
+        {%- for c in p.certs -%}
+        <li class="cert">
+          {%- include cert-badge.html cert=c n=forloop.index -%}
+          <p class="cert__name">AWS Certified<br><strong>{{ c.name }}</strong></p>
+          <p class="cert__level">{{ c.level }}</p>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+
   <section class="section writing" id="writing">
     <div class="wrap">
       <header class="section__head">

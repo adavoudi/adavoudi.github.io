@@ -1,0 +1,22 @@
+{%- assign c = include.cert -%}
+{%- assign n = include.n -%}
+<svg class="badge" viewBox="0 0 120 132" role="img" aria-label="AWS Certified {{ c.name }} {{ c.level }}">
+  <defs>
+    <linearGradient id="bg{{ n }}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="{{ c.from }}"/><stop offset="1" stop-color="{{ c.to }}"/>
+    </linearGradient>
+    <radialGradient id="bf{{ n }}" cx=".5" cy=".35" r=".8">
+      <stop offset="0" stop-color="{{ c.from }}" stop-opacity=".22"/><stop offset="1" stop-color="#07090f" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <circle class="badge__ring" cx="60" cy="66" r="62" fill="none" stroke="url(#bg{{ n }})" stroke-opacity=".35" stroke-dasharray="2 7" stroke-linecap="round"/>
+  <polygon points="60,8 108,36 108,96 60,124 12,96 12,36" fill="url(#bf{{ n }})" stroke="url(#bg{{ n }})" stroke-width="2.5" stroke-linejoin="round"/>
+  <polygon points="60,20 98,42 98,90 60,112 22,90 22,42" fill="none" stroke="url(#bg{{ n }})" stroke-opacity=".35" stroke-width="1"/>
+  <text x="60" y="68" text-anchor="middle" class="badge__code" fill="url(#bg{{ n }})">{{ c.code }}</text>
+  <g fill="none" stroke="url(#bg{{ n }})" stroke-width="1.5">
+    {%- for i in (1..3) -%}
+      {%- assign cx = i | times: 11 | plus: 27 -%}
+      <circle cx="{{ cx }}" cy="86" r="3.2" {% if i <= c.tier %}fill="url(#bg{{ n }})"{% else %}stroke-opacity=".35"{% endif %}/>
+    {%- endfor -%}
+  </g>
+</svg>
