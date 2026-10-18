@@ -1,0 +1,14 @@
+{%- assign post = include.post -%}
+<a class="card" href="{{ post.url | relative_url }}">
+  <span class="card__media">
+    {%- if post.cover -%}<img src="{{ post.cover | relative_url }}" alt="" loading="lazy" decoding="async">{%- else -%}<span class="card__ph" aria-hidden="true"></span>{%- endif -%}
+  </span>
+  <span class="card__body">
+    <span class="card__meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <span>{{ post.content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+    </span>
+    <span class="card__title">{{ post.title | escape }}</span>
+    <span class="card__excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</span>
+  </span>
+</a>

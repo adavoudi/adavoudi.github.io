@@ -1,0 +1,12 @@
+<header class="nav" id="nav">
+  <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="Alireza Davoudi, home">
+    <span class="nav__mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span>Alireza Davoudi</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="{{ '/#pipeline' | relative_url }}">Pipeline</a>
+    <a href="{{ '/posts/' | relative_url }}"{% if page.url contains '/posts' or page.layout == 'post' %} aria-current="page"{% endif %}>Writing</a>
+    <a href="https://adavoudi.info/aws-sap/" rel="noopener">AWS SAP guide</a>
+    <a class="nav__cta" href="{{ '/#contact' | relative_url }}">Say hi</a>
+  </nav>
+</header>

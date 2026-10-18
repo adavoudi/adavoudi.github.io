@@ -1,0 +1,57 @@
+name: Alireza Davoudi
+role: Senior Data Engineer
+company: Yelp
+email: davoudialireza@gmail.com
+links:
+  - { label: GitHub,   url: "https://github.com/adavoudi",                    icon: github }
+  - { label: LinkedIn, url: "https://www.linkedin.com/in/alireza-davoudi/",    icon: linkedin }
+
+# The pipeline story on the landing page. Each stage is one node in the 3D scene.
+# `posts` are post slugs (file name without date); `repos` are public GitHub repos.
+stages:
+  - key: capture
+    title: Capture
+    kicker: Everything starts as noise.
+    text: >-
+      Databases, events and clickstreams never stop talking. I like the part where
+      change data capture and event buses turn that chatter into a stream you can
+      actually reason about.
+    tags: [Kafka, Debezium, EventBridge, Lambda]
+    posts: [eventbridge, todo-app]
+    repos:
+      - { title: multi-cloud-data-platform, note: "CDC playground: MySQL, Debezium, Kafka", url: "https://github.com/adavoudi/multi-cloud-data-platform" }
+
+  - key: process
+    title: Process
+    kicker: Turn motion into meaning.
+    text: >-
+      Streaming and batch compute that reshapes events at scale. Underneath it all
+      sits plain systems work, so I enjoy pulling containers, CPU limits and
+      autoscaling apart to see how they behave.
+    tags: [Spark, Flink, dbt, Python, Docker]
+    posts: [deep-dive-docker, cpu-limit, autoscaling, elb]
+    repos:
+      - { title: simple_docker, note: "A Docker-like container runtime in Python", url: "https://github.com/adavoudi/simple_docker" }
+
+  - key: store
+    title: Store & Model
+    kicker: Shape it so questions are cheap.
+    text: >-
+      Lakehouse layouts, open table formats and a catalog that engines agree on.
+      Good modelling is what makes the next ten questions fast and the next
+      ten dashboards boring, in the good way.
+    tags: [S3, Glue Data Catalog, Athena, Redshift, OpenSearch]
+    posts: [aws-opensearch]
+    repos:
+      - { title: DataCatalogView, note: "Glue multi-dialect views across Athena and Redshift", url: "https://github.com/adavoudi/DataCatalogView" }
+
+  - key: operate
+    title: Operate
+    kicker: Run it like you will be paged for it.
+    text: >-
+      A pipeline is only as good as the infrastructure it runs on. Infrastructure
+      as code, least-privilege access across accounts, and a close eye on the bill.
+    tags: [Terraform, CDK, CloudFormation, IAM, Systems Manager]
+    posts: [aws-system-manager, cfn-init-user-data, cross-account-access, saving-plan]
+    repos:
+      - { title: aws-sap, note: "My AWS Solutions Architect Professional study guide", url: "https://github.com/adavoudi/aws-sap" }
