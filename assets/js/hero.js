@@ -85,15 +85,18 @@ async function samplePortrait(count) {
     const i = (y * SAMPLE_RES + x) * 4;
     if (px[i + 3] < 200) continue;
     const v = y / SAMPLE_RES;
-    if (Math.random() > (v < 0.6 ? 1 : 0.16)) continue;
+    if (Math.random() > lerp(1, 0.2, smoothstep(v, 0.6, 0.82))) continue;
 
     const r = px[i] / 255, g = px[i + 1] / 255, b = px[i + 2] / 255;
     const lum = 0.3 * r + 0.59 * g + 0.11 * b;
     const lx = (x + Math.random()) / SAMPLE_RES - 0.5;
     const ly = 0.5 - (y + Math.random()) / SAMPLE_RES;
     // Relief: brighter = nearer, plus a dome over the head so tilting reads as 3D.
+    // The dome falls off smoothly through the neck into the shoulders; a hard
+    // cut here makes head and body tilt as two separate layers.
     const dx = lx / 0.34, dy = (ly - 0.18) / 0.42;
-    const dome = ly > -0.05 ? Math.max(0, 1 - dx * dx - dy * dy) * 0.16 : 0;
+    const torso = Math.max(0, 1 - (lx / 0.6) ** 2) * 0.05;
+    const dome = Math.max(Math.max(0, 1 - dx * dx - dy * dy) * 0.16, torso);
     target.set([lx, ly, (lum - 0.5) * 0.1 + dome + (Math.random() - 0.5) * 0.012], n * 3);
     color.set([r, g, b], n * 3);
     n++;
