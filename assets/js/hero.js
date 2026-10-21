@@ -440,6 +440,16 @@ async function main() {
     dots.forEach((el, i) => el.classList.toggle('is-active', i === active));
   }
 
+  // progress dots jump to the scroll position where each stage's camera settles
+  // (inverse of the stage mapping in placeCamera)
+  dots.forEach((el, i) => {
+    el.querySelector('button')?.addEventListener('click', () => {
+      const p = 0.2 + (i / (keyCams.length - 1)) * 0.8;
+      const top = window.scrollY + pipeline.getBoundingClientRect().top;
+      window.scrollTo({ top: top + p * (pipeline.offsetHeight - window.innerHeight), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+
   // --- pointer -----------------------------------------------------------
   const pointer = { x: 0, y: 0, tx: 0, ty: 0, active: false };
   window.addEventListener('pointermove', (e) => {

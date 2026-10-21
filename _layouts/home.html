@@ -49,8 +49,8 @@ layout: default
       </article>
       {%- endfor -%}
 
-      <ol class="progress" aria-hidden="true">
-        {%- for s in p.stages -%}<li data-dot="{{ forloop.index0 }}"><span>{{ s.title }}</span></li>{%- endfor -%}
+      <ol class="progress" aria-label="Pipeline stages">
+        {%- for s in p.stages -%}<li data-dot="{{ forloop.index0 }}"><button type="button" aria-label="Jump to {{ s.title }}"><span>{{ s.title }}</span></button></li>{%- endfor -%}
       </ol>
       <div class="labels" aria-hidden="true">
         {%- for s in p.stages -%}<span class="label" data-label="{{ forloop.index0 }}">0{{ forloop.index }} {{ s.title }}</span>{%- endfor -%}
@@ -61,7 +61,6 @@ layout: default
   <section class="section certs" id="certified" aria-labelledby="certs-title">
     <div class="wrap">
       <header class="section__head">
-        <p class="eyebrow">Certified</p>
         <h2 id="certs-title">Four AWS certifications.</h2>
         <p class="lead">I came to data engineering through computer vision and machine learning, so I care a lot about pipelines that are observable and trustworthy. The certifications are the cloud half of that.</p>
       </header>
@@ -69,7 +68,7 @@ layout: default
         {%- for c in p.certs -%}
         <li class="cert">
           {%- include cert-badge.html cert=c n=forloop.index -%}
-          <p class="cert__name">AWS Certified<br><strong>{{ c.name }}</strong></p>
+          <p class="cert__name">{{ c.name }}</p>
           <p class="cert__level">{{ c.level }}</p>
         </li>
         {%- endfor -%}
@@ -80,7 +79,6 @@ layout: default
   <section class="section writing" id="writing">
     <div class="wrap">
       <header class="section__head">
-        <p class="eyebrow">Writing</p>
         <h2>Notes from the cloud.</h2>
         <p class="lead">Hands-on write-ups of things I built or finally understood. Mostly AWS, containers and data infrastructure.</p>
       </header>
@@ -95,7 +93,6 @@ layout: default
 
   <section class="section contact" id="contact">
     <div class="wrap contact__inner">
-      <p class="eyebrow">Contact</p>
       <h2>Building something with data?<br>Let's talk.</h2>
       <p class="lead">Collaborating, learning or just comparing war stories, I'm always up for it. Email is the fastest way to reach me.</p>
       <div class="actions">
