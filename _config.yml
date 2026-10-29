@@ -9,6 +9,7 @@ description: >-
 url: https://adavoudi.info
 lang: en
 image: /assets/img/og.png
+google_analytics: G-3FWPK6J51D
 
 plugins:
   - jekyll-feed
