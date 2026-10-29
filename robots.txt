@@ -1,0 +1,10 @@
+---
+layout: null
+sitemap: false
+---
+User-agent: *
+Allow: /
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}
+Sitemap: {{ '/aws-sap/sitemap.xml' | absolute_url }}
+Sitemap: {{ '/de-mastery/sitemap.xml' | absolute_url }}

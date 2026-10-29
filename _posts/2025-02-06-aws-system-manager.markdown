@@ -5,6 +5,7 @@ date:   2025-02-06 10:00:00 +0100
 categories: system-manager
 excerpt: After watching the following re:Invent video from AWS (published on December 8, 2024), I found it insightful how AWS Systems Manager (SSM) has evolved over the years. The video featured Jon Galentine, Director of AWS Systems Manager, and Nereida Woo, Specialist Solutions Architect for Cloud Operations, discussing the transformation of Systems Manager from a basic EC2 maintenance tool to a comprehensive cloud operations solution. Here are my key takeaways from their talk.
 cover: /assets/aws-services/system-manager/cover.png
+image: /assets/aws-services/system-manager/cover.png
 ---
 
 After watching the following re:Invent video from AWS (published on December 8, 2024), I found it insightful how AWS Systems Manager (SSM) has evolved over the years. The video featured Jon Galentine, Director of AWS Systems Manager, and Nereida Woo, Specialist Solutions Architect for Cloud Operations, discussing the transformation of Systems Manager from a basic EC2 maintenance tool to a comprehensive cloud operations solution. Here are my key takeaways from their talk.

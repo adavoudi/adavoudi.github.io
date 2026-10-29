@@ -5,6 +5,7 @@ date:   2025-02-08 10:00:00 +0100
 categories: elb
 excerpt: When deploying applications on AWS, choosing the right load balancer is crucial for performance, availability, and scalability. AWS offers two primary types of Elastic Load Balancers (ELB) Application Load Balancer (ALB) and Network Load Balancer (NLB). Understanding their differences and use cases will help you make an informed decision.
 cover: /assets/aws-services/elb/cover.png
+image: /assets/aws-services/elb/cover.png
 ---
 
 When deploying applications on AWS, choosing the right load balancer is crucial for performance, availability, and scalability. AWS offers two primary types of Elastic Load Balancers (ELB): **Application Load Balancer (ALB)** and **Network Load Balancer (NLB)**. Understanding their differences and use cases will help you make an informed decision.

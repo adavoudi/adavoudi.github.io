@@ -5,6 +5,7 @@ date:   2024-11-26 10:00:00 +0100
 categories: docker
 excerpt: I've always been fascinated by how Docker works behind the scenes. Containers have revolutionized the way we develop and deploy applications, but the magic often feels like a black box. To demystify it, I decided to embark on a learning journey to build a simple Docker-like container runtime using Python.
 cover: /assets/docker-deep-dive/cover.png
+image: /assets/docker-deep-dive/cover.png
 ---
 
 I've always been fascinated by how Docker works behind the scenes. Containers have revolutionized the way we develop and deploy applications, but the magic often feels like a black box. To demystify it, I decided to embark on a learning journey to build a simple Docker-like container runtime using Python.

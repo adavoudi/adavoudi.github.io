@@ -5,6 +5,7 @@ date:   2025-02-09 10:00:00 +0100
 categories: saving-plan
 excerpt: When running workloads on AWS, cost optimization is always a priority. AWS offers Savings Plans as a way to significantly reduce compute costs, but choosing the right one can make a big difference. In this blog, we’ll explore the differences between Compute Savings Plans, EC2 Instance Savings Plans, and Reserved Instances, and help you determine which is best for your business.
 cover: /assets/aws-services/saving-plan/cover.png
+image: /assets/aws-services/saving-plan/cover.png
 ---
 
 When running workloads on AWS, cost optimization is always a priority. AWS offers Savings Plans as a way to significantly reduce compute costs, but choosing the right one can make a big difference. In this blog, we’ll explore the differences between Compute Savings Plans, EC2 Instance Savings Plans, and Reserved Instances, and help you determine which is best for your business.

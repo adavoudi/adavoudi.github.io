@@ -5,6 +5,7 @@ date:   2025-02-04 10:00:00 +0100
 categories: autoscaling
 excerpt: In this blog post, we will explore how to create an autoscaling group with a target tracking policy using AWS CloudFormation. We'll delve into the concepts of autoscaling groups, different scaling policies, and why AWS recommends using target tracking policies. Additionally, we will walk through an example that demonstrates the behavior of an autoscaling group in response to CPU utilization changes.
 cover: /assets/aws-services/autoscaling/cover.png
+image: /assets/aws-services/autoscaling/cover.png
 ---
 
 In this blog post, we will explore how to create an autoscaling group with a target tracking policy using AWS CloudFormation. We'll delve into the concepts of autoscaling groups, different scaling policies, and why AWS recommends using target tracking policies. Additionally, we will walk through an example that demonstrates the behavior of an autoscaling group in response to CPU utilization changes.

@@ -5,6 +5,7 @@ date:   2025-02-01 10:00:00 +0100
 categories: aws opensearch
 excerpt: Amazon OpenSearch (formerly Elasticsearch) is a powerful tool for searching, analyzing, and visualizing data. In this guide, I want to show how to set up an OpenSearch cluster on AWS, load sample data, and create interactive dashboards—all within the AWS Free Tier using both the AWS Console and IaC.
 cover: /assets/aws-services/opensearch/cover.png
+image: /assets/aws-services/opensearch/cover.png
 ---
 
 Amazon OpenSearch (formerly Elasticsearch) is a powerful tool for searching, analyzing, and visualizing data. In this guide, I want to show how to set up an OpenSearch cluster on AWS, load sample data, and create interactive dashboards—all within the AWS Free Tier using both the AWS Console and IaC.

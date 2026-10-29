@@ -13,6 +13,21 @@ image: /assets/img/og.png
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+# jekyll-seo-tag only reads `image` from page front matter, so the site-wide
+# share image has to come in through defaults.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og.png
+
+social:
+  name: Alireza Davoudi
+  links:
+    - https://github.com/adavoudi
+    - https://www.linkedin.com/in/alireza-davoudi/
 
 exclude:
   - Gemfile
@@ -20,6 +35,7 @@ exclude:
   - vendor
   - node_modules
   - README.md
+  - .bundle
 
 highlighter: rouge
 markdown: kramdown

@@ -5,6 +5,7 @@ date:   2025-02-02 10:00:00 +0100
 categories: aws eventbridge
 excerpt: When managing cloud infrastructure, automating responses to common events can save time, reduce downtime, and ensure consistent operations. In this post, we’ll walk through a CloudFormation template that deploys an EC2 instance, a Lambda function, and an EventBridge rule to automatically restart a stopped instance.
 cover: /assets/aws-services/eventbridge/Eventbridge-lambda.drawio.png
+image: /assets/aws-services/eventbridge/Eventbridge-lambda.drawio.png
 ---
 
 When managing cloud infrastructure, automating responses to common events can save time, reduce downtime, and ensure consistent operations. In this post, we’ll walk through a CloudFormation template that deploys an EC2 instance, a Lambda function, and an EventBridge rule to automatically restart a stopped instance.

@@ -5,6 +5,7 @@ date:   2025-02-07 10:00:00 +0100
 categories: cfn-init
 excerpt: When launching an Amazon EC2 instance, you often need to automate the installation of packages, configuration of services, and setup of applications. AWS provides two primary approaches for this **User Data** scripts and **cfn-init** (CloudFormation helper script). Each has its own strengths and limitations. In this blog post, we'll explore both, compare their pros and cons, and explain how you can use `cfn-hup` to automate in-place updates.
 cover: /assets/aws-services/cfn-init/cover.png
+image: /assets/aws-services/cfn-init/cover.png
 ---
 
 When launching an Amazon EC2 instance, you often need to automate the installation of packages, configuration of services, and setup of applications. AWS provides two primary approaches for this: **User Data** scripts and **cfn-init** (CloudFormation helper script). Each has its own strengths and limitations. In this blog post, we'll explore both, compare their pros and cons, and explain how you can use `cfn-hup` to automate in-place updates.

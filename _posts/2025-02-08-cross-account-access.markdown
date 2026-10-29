@@ -5,6 +5,7 @@ date:   2025-02-08 10:00:00 +0100
 categories: cross-account-access
 excerpt: In modern cloud environments, managing access across multiple AWS accounts is a common challenge. Whether you're operating within a multi-account AWS organization or collaborating with external partners, AWS provides robust mechanisms for secure cross-account access. This blog post will break down how cross-account access works and the best practices for implementing it.
 cover: /assets/aws-services/cross-account/cover.png
+image: /assets/aws-services/cross-account/cover.png
 ---
 
 In modern cloud environments, managing access across multiple AWS accounts is a common challenge. Whether you're operating within a multi-account AWS organization or collaborating with external partners, AWS provides robust mechanisms for secure cross-account access. This blog post will break down how cross-account access works and the best practices for implementing it.

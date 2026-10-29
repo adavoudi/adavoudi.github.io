@@ -5,6 +5,7 @@ date:   2025-01-25 10:00:00 +0100
 categories: aws cloudformation cicd developer
 excerpt: Cloud computing is a big deal these days, and the best way to learn it is by getting your hands dirty with real projects. That’s why I decided to build a **TODO app using AWS**. This wasn’t just about making a simple app to manage tasks—it was about learning AWS inside out, mastering CI/CD pipelines, and getting ready for the **AWS Developer Certification Exam**. Along the way, I also wanted to explore how to build scalable and secure systems, and get comfortable with deploying and managing cloud applications.
 cover: /assets/todo-app/todo-app-cicd.drawio.png
+image: /assets/todo-app/todo-app-cicd.drawio.png
 ---
 # 1\. Introduction
 

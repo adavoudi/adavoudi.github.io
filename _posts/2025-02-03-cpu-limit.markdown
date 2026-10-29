@@ -5,6 +5,7 @@ date:   2025-02-03 10:00:00 +0100
 categories: cpulimit stress
 excerpt: Simulating precise CPU utilization is essential for testing applications and systems under controlled conditions. For example, when evaluating system performance or auto-scaling behavior, you may want to set CPU usage to a specific percentage. This post introduces a Python script that combines `stress` and `cpulimit` to achieve this, offering a flexible way to simulate exact CPU loads.
 cover: /assets/cpu_utilization.png
+image: /assets/cpu_utilization.png
 ---
 
 Simulating precise CPU utilization is essential for testing applications and systems under controlled conditions. For example, when evaluating system performance or auto-scaling behavior, you may want to set CPU usage to a specific percentage. This post introduces a Python script that combines `stress` and `cpulimit` to achieve this, offering a flexible way to simulate exact CPU loads.
